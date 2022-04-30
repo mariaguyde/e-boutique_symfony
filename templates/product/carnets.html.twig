@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk {% endblock %}
+
+{% block body %}
+
+<div id="produit_page">
+    <div id="produits">
+
+            {% for product in products %}
+                {% if product.category == "Carnets" %}
+                  ff
+                {% endif %}
+
+                <div class="produits_unit">
+                <div>{{ product.name }}</div>
+                <div>{{ product.description }} </div>
+                <div>{{ product.priceHT }}</div>
+                <a href="{{ path('product_show', {'id': product.id}) }}">Voir le produit</a>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('product_edit', {'id': product.id}) }}">Modifier les informations sur le produit</a>
+                {% endif %} 
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

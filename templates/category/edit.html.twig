@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Modifier la catégorie{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h1>Modifier la catégorie</h1>
+
+    {{ include('category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('category_index') }}">Retour à la liste des catégories</a>
+
+    {{ include('category/_delete_form.html.twig') }}
+</div>
+{% endblock %}

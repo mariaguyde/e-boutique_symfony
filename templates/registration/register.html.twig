@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Créez votre compte{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="center">Créez votre compte</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        <button type="submit" class="btn">Créer son compte</button>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

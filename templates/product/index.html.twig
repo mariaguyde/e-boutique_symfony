@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {% if is_granted('ROLE_ADMIN') %}
+        <div id="admin"> 
+            <h3> <img src="{{ asset('./images/admin.png')}}" alt="icon d'une personne"/>Espace adminisatrateur</h3>
+            <a href="{{ path('product_new') }}">Créer un nouveau produit</a>
+            <a href="{{ path('category_index') }}">Voir la liste des catégories</a>
+            <a href="{{ path('category_new') }}">Créer une catégorie</a>
+        </div>
+    {% endif %}
+
+    <div id="produit_page">
+        <div id="produits">
+            {% for product in products %}
+                <div class="produits_unit">
+                    <div class="produits_unitImages">
+                        {% for medium in product.media %}
+                                <img class="block-products__img" src="{{ asset('uploads/' ~ medium.path)}}" alt={{medium.alt}}></img>
+                        {% endfor %}  
+                    </div>   
+                    <div class="produits_unit_name">{{ product.name }}</div>
+                    <div>{{ product.description }} </div>
+                    <div>{{ product.priceHT }}$</div>
+                    <div class="produits_unit_actions">
+                        <a href="{{ path('product_show', {'id': product.id}) }}"> <img class="product_icon"  src="{{ asset('./images/see.png')}}" alt="image d'un oeil"/> Voir le produit</a>
+                        <a href="{{ path('product_add', {'id': product.id, 'nom': product.name, 'prix': product.priceHT}) }}">  <img  class="product_icon" src="{{ asset('./images/add-to-cart.png')}}" alt="image d'un chariot avec un plus"/>Ajouter le produit au panier</a>
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('product_edit', {'id': product.id}) }}">  <img  class="product_iconEdit" src="{{ asset('./images/pencil.png')}}" alt="image d'un stylo"/>Modifier les informations sur le produit</a>
+                                <a href="{{ path('product_delete', {'id': product.id}) }}"><img  class="product_iconEdit" src="{{ asset('./images/bin.png')}}" alt="image d'une poubelle"/>Supprimer le produit</a>
+
+                        {% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <div>Aucun produits encore en vente pour l'instant. Veuillez revenir plus tard.</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

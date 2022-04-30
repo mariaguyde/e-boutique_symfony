@@ -1,0 +1,32 @@
+Projet Symfony E-boutique - Winnie's desk 
+
+Identifiants pour accéder à un compte admin : 
+Email : admin@gmail.com
+Mot de passe : adminroot
+
+Fonctionnalités réalisées : 
+- Affichage des produits et des catégories 
+- Affichage des produits par catégorie (cliquez sur le menu Catégorie et cliquez sur la catégorie qui vous intéresse, vous aurez les produits de cette catégorie)
+- Page profil : Affichage des informations de l'utilisateur 
+- Possibilité de mettre à jour son profil 
+- Possibilité de supprimer un produit (avec l'image qui va avec), une catégorie 
+- Possibilité d'ajouter un produit, un média ainsi qu'une catégorie 
+- Possibilité d'éditer les informations d'un produit et d'une catégorie
+- Mise en place de la session 
+- Connexion à son compte et création d'un compte possible (avec mot de passe crypté)
+- Panier : possibilité de mettre des produits dans son panier et de les retrouver
+- Possibilité de définir les quantités des produits avant de passer la commande 
+- Affichage d'un récapitulatif de la commande passée 
+- Implémentation du fileUploader pour les images des produits 
+
+
+Pour rappel, voici le cahier des charges : 
+Vous devez gérer la commande en ligne sur un catalogue existant (on ne demande pas la gestion des stocks !).
+L'utilisateur final pourra naviguer entre catégories de produits et choisir un produit pour le mettre dans son panier (on choisira de placer plutôt le panier en variable de session, mais la solution qu'il soit dans la base est aussi possible).
+Lors de la mise en panier du produit ou lors de la commande finale, il pourra ajuster le nombre d'exemplaires du(des) produit(s) choisi(s).
+A la visualisation de la commande, le montant de chaque ligne sera affiché, ainsi que le montant total et le prix du transport.
+Pour payer, l'acheteur devra se connecter, s'il se connecte pour la première fois, il devra s'enregistrer en fournissant son nom,  son e-mail un password et une adresse de livraison.
+Lorsque l'utilisateur se connecte à la boutique, ses paramètres de connexion le suivront en variable de session.
+On ne demande pas le traitement du paiement (pas de tunnel d'achat).
+Le back-office de la boutique permettra de gérer le catalogue
+L'utilisateur aura accès à son profil pour le mettre à jour.

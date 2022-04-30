@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CommandLine{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Edit CommandLine</h1>
+    {{ include('command_line/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('command_line_index') }}">Retour à la liste</a>
+    {{ include('command_line/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Votre panier{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper cartContainer">
+    <div class="container">
+        <form action="/order_products" method="get"> 
+            <h2>Votre panier</h2>
+            {% if  cartContent is not defined or cartContent is empty %}
+                <p>Votre panier est vide. </p>
+            {% endif %}
+
+            {% set count = 0 %}
+            {% if  cartContent is defined and cartContent is not empty %}
+                <!--<div>Total de la commande : <span id="montantCommande"> </span></div>-->
+                <div id="cartItems">
+                    <div>
+                        {% for key, value in cartContent %}
+                            <div class="item_unit">
+                            {% set count = count + 1 %}
+                                <p class="nomProduit">{{value.name}}</p> 
+                                <p class="prixProduit">{{value.priceHT}}$</p>
+                                <div>
+                                    <label for="quantite">Quantité : </label>
+                                    <input type="number" id="quantite" name="quantite[]" value="1" min="1" max="20">
+                                </div>
+                                <button class="item_unit_deleteBtn"><a href="{{ path('cart_update' , {'id': value.id}) }}">Supprimer le produit de mon panier</a></button>
+                    </div>
+                {% endfor %}
+                    <button>Passez ma commande</button>
+                </div>
+            {% endif %}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,18 @@
+ <header>
+    <div>
+        <h1>Winnie's desk</h1>
+        <span> Find your treasures ! </span>
+    </div>
+    <ul>
+        <li><a href="{{ path('index') }}">Tous les produits</a></li>
+        <li><a href="{{ path('category_index')}}">Catégories</a></li>
+
+        {% if is_granted('ROLE_USER') %}
+            <li><a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+         {% else %}
+            <li><a class="nav-link" href="{{ path('app_login') }}">Se connecter</a> 
+        {% endif %}
+        <li><a style="display:flex;" href="{{ path('cart') }}"> <img style=" height: 21px; margin-right: 10px;" src="{{ asset('./images/cart.png')}}" alt="image d'un chariot"/> Mon panier</a></li>
+        <li><a style="display:flex;" href="{{ path('users')}}"> <img style=" height: 21px; margin-right: 10px;" src="{{ asset('./images/user.png')}}" alt="icon d'une personne"/> Mon profil</a></li>
+    </ul>
+ </header>

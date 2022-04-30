@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - {{ product.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ product.name }}</h1>
+        <div>ID : {{ product.id }} </div>
+        <div>Description : {{ product.description }} </div>
+        <div>Prix : {{ product.priceHT }}</div>
+        <div>Disponbilité : {{ product.available }}</div>
+
+        <a href="{{ path('product_index') }}">Retourner voir les produits</a>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('product_edit', {'id': product.id}) }}">Modifier le produit</a>
+            {{ include('product/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Votre profil{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper container">
+    <h1> <img style=" height: 30px; margin-right: 10px;" src="{{ asset('./images/user.png')}}" alt="icon d'une personne"/> Votre profil</h1>
+    <div>
+        <p>Votre identifiant : {{user.id}}</p>
+        <p>Votre nom :  {{user.firstName}}</p>
+        <p>Votre addresse mail :  {{user.email}}</p>
+        <p>Votre numéro de téléphone :  {{user.phone}}</p>
+
+        <!--<p id="orders_list"><img id="orders_icons" src="images/clipboard.png" alt="image d'un clipboard"><a href="{{ path('order_index')}}">Voir la liste des mes commandes</a></p>-->
+    </div>
+
+
+    <button><a href="{{ path('updateProfil', {'id': user.id}) }}">Modifier mon profil</a></button>
+</div>
+{% endblock %}

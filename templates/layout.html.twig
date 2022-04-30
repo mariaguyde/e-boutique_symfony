@@ -1,0 +1,20 @@
+{#
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div id="container">
+
+    <div id="container_c1">
+      {% include "inc/menu.html.twig" %}
+     </div>
+
+    <div id="container_c2">
+            {% block contentConsultation %}
+            {% endblock %}
+    </div>
+
+    <div id="container_c3"></div>
+</div>
+{% endblock %}
+#}

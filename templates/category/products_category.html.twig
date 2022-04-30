@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Liste des catégories{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Les produits de la catégorie {{categoryName}}</h1>
+        {% if  products is empty %}
+            <p>Il n'y a pas de produits pour cette catégorie pour l'instant! </p>
+        {% endif %}
+
+        <div id="productsCategory"> 
+            {% for product in products %}
+                <div class="produits_unit">
+                    <div class="produits_unitImages">
+                            {% for medium in product.media %}
+                                    <img class="block-products__img" src="{{ asset('uploads/' ~ medium.path)}}" alt={{medium.alt}}></img>
+                            {% endfor %}  
+                    </div>   
+                    <div  class="produits_unit_name">{{ product.name }}</div>
+                    <div>{{ product.description }} </div>
+                    <div>{{ product.priceHT }}$</div>
+                    <div class="produits_unit_actions">
+                        <a href="{{ path('product_show', {'id': product.id}) }}"> <img class="product_icon"  src="./images/see.png" alt="image d'un oeil"/> Voir le produit</a>
+                        <a href="{{ path('product_add', {'id': product.id, 'nom': product.name, 'prix': product.priceHT}) }}">  <img  class="product_icon" src="./images/add-to-cart.png" alt="image d'un chariot avec un plus"/>Ajouter le produit au panier</a>
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('product_edit', {'id': product.id}) }}">Modifier les informations sur le produit</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

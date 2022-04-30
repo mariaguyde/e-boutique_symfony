@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Update profil{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Modifier les informations sur le produit</h1>
+    <div>
+        {{ include('users/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+    </div>
+</div>
+
+{% endblock %}

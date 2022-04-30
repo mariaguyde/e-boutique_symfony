@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Vos commandes{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Vos commandes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro de la commande</th>
+                <th>Date de la commande</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.orderNumber }}</td>
+                <td>{{ order.dateTime ? order.dateTime|date('Y-m-d') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Vous n'avez fait aucune commandes pour l'instant !</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

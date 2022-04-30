@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Modifier les informations sur le produit{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Modifier les informations sur le produit</h1>
+    <div>
+        {{ include('product/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+        {% if is_granted('ROLE_ADMIN') %}
+        {{ include('product/_delete_form.html.twig') }}
+        {% endif %} 
+    </div>
+    <a href="{{ path('product_index') }}">Retour à la liste des produits</a>
+</div>
+{% endblock %}

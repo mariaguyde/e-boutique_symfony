@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Winnie's desk - Liste des médias{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Liste des médias</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Type</th>
+                <th>Path</th>
+                <th>Alt</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medium in media %}
+            <tr>
+                <td>{{ medium.id }}</td>
+                <td>{{ medium.type }}</td>
+                <td>{{ medium.path }}</td>
+                <td>{{ medium.alt }}</td>
+                <td>
+                    <a href="{{ path('app_media_show', {'id': medium.id}) }}">Voir le média</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de médias</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_media_new') }}">Ajouter un nouveau média</a>
+</div>
+{% endblock %}
