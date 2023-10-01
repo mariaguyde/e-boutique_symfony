@@ -16,7 +16,7 @@ form {
 .inputs{
     width: 200px;
     display: flex;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .center, label {
