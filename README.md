@@ -1,4 +1,4 @@
-# Winnie's desk - E-boutique_symfony
+# Winnie's desk - Création d'une e-boutique avec Symfony 
 
 
 ## Brief
